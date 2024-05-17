@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>multer_dp</title>
+	<link rel="stylesheet" href="../stylesheets/style.css">
+</head>
+
+<body>
+	<form action="/upload" id="hidden" method="post" enctype="multipart/form-data">
+		<input id="fileinput" type="file" name="image"><br><br>
+		<input type="submit">
+	</form>
+	
+	<div class="circle" style="height: 8rem; width:8rem; border-radius:50%; background-size:cover;">
+		<img src="../images/uploads/<%= user.image%>" width="100%" height="100%" style="border-radius:50%;" alt="">
+	</div>
+	
+	
+	
+	<script>
+		var circle = document.querySelector(".circle");
+		circle.addEventListener("click", function() {
+			//<!-- alert('hello'); -->
+			document.querySelector("#fileinput").click();
+			
+			document.querySelector("#fileinput").addEventListener("change", function() {
+				document.querySelector("#hidden").submit();
+			});
+			
+		})
+	</script>
+</body>
+
+</html>
